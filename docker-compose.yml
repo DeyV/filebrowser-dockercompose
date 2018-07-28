@@ -1,0 +1,13 @@
+
+version: '3.3'
+
+services:
+  file-manager:
+  #   image: hacdias/filebrowser
+     build: ./build
+     ports:
+        - "80:80"
+     volumes:
+        # - ./config.json:/config.json
+        - ./database.db:/database.db
+        - ./data/:/data/

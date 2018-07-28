@@ -1,0 +1,21 @@
+#!/bin/ash
+
+pwd
+
+done=false
+for f in *.zip *.7z *.rar *.gz
+do
+	if [ -f $f ]; then
+  	 echo "unpacking $f"
+		 7z x -aoa -y $f > /dev/null
+		 rm $f
+
+	   done=true
+	fi
+
+	#7z a  "$f.7z" $f
+done
+
+if ! $done; then
+	 echo "nothing to unpack"
+fi
